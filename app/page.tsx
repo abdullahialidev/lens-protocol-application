@@ -1,4 +1,5 @@
-import useClient from './client.ts';
+import React from 'react';
+import client from './client';
 
 import { useSearchProfiles } from '@lens-protocol/react-web';
 import Link from 'next/link';
@@ -10,8 +11,6 @@ export default function Home() {
     query: '', // add a query parameter here
     limit: 30,
   });
-
-  const client = useClient();
 
   return (
     <div className='p-20'>

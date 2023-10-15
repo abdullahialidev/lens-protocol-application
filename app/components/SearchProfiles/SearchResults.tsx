@@ -1,6 +1,7 @@
 import React from 'react';
 import { Profile } from '@lens-protocol/react-web';
 
+
 interface Props {
   query: string;
   profiles: Profile[];

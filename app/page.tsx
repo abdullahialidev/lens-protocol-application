@@ -3,11 +3,17 @@ import Link from 'next/link';
 import { formatPicture } from '../utils';
 import { SearchProfiles } from './components/SearchProfiles/SearchProfiles';
 
+// Import client from ./client.ts
+import { client } from './client';
+
 export default function Home() {
-  const { data } = useSearchProfiles({
+  const options = {
     query: '', // add a query parameter here
     limit: 30,
-  });
+    client, // pass the client to useSearchProfiles
+  };
+
+  const { data } = useSearchProfiles(options);
 
   return (
     <div className='p-20'>

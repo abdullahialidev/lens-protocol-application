@@ -557,7 +557,7 @@
     siwe "^1.1.6"
     tslib "^2.5.0"
 
-"@lens-protocol/react-web@^1.2.1", "@lens-protocol/react-web@1.3.1":
+"@lens-protocol/react-web@^1.3.1", "@lens-protocol/react-web@1.3.1":
   version "1.3.1"
   resolved "https://registry.npmjs.org/@lens-protocol/react-web/-/react-web-1.3.1.tgz"
   integrity sha512-9Dmx2gyNgqdHdjidKs+0I4gztCJ4a5DqRMNg/EqRNslwhoqGXmV8xbWNF7fzhQpTI31HHJXS+wQdKvhw0b3xCg==

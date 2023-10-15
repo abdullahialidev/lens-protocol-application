@@ -1,22 +1,22 @@
-import SearchProfiles from './components/SearchProfiles/SearchProfiles';
-import { useSearchProfiles, useClient } from '@lens-protocol/react-web'; // import the useClient hook
+import useClient from './client.ts';
+
+import { useSearchProfiles } from '@lens-protocol/react-web';
 import Link from 'next/link';
 import { formatPicture } from '../utils';
-import { client } from './client';
+import SearchProfiles from './components/SearchProfiles/SearchProfiles';
 
 export default function Home() {
-  const options = {
-    query: '',
+  const { data } = useSearchProfiles({
+    query: '', // add a query parameter here
     limit: 30,
-    client,
-  };
+  });
 
-  const { data } = useSearchProfiles(options);
+  const client = useClient();
 
   return (
     <div className='p-20'>
       <h1>My Lens App</h1>
-      <SearchProfiles />
+      <SearchProfiles client={client} />
       {data?.map((profile, index) => (
         <Link href={`/profile/${profile.handle}`} key={index}>
           <div className='my-14'>
@@ -35,15 +35,6 @@ export default function Home() {
           </div>
         </Link>
       ))}
-      <div>
-        <Card />
-      </div>
     </div>
   );
-}
-
-function Card() {
-  const [state, setState] = useClient(""); // use the useClient hook to mark this component as a client component
-
-  return <></>;
 }

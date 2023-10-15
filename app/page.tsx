@@ -1,3 +1,4 @@
+"use client";
 import { useSearchProfiles } from '@lens-protocol/react-web';
 import Link from 'next/link';
 import { formatPicture } from '../utils';

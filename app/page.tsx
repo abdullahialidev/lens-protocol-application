@@ -1,17 +1,14 @@
-"use client";
-import { useSearchProfiles } from '@lens-protocol/react-web';
+import SearchProfiles from './components/SearchProfiles/SearchProfiles';
+import { useSearchProfiles, useClient } from '@lens-protocol/react-web'; // import the useClient hook
 import Link from 'next/link';
 import { formatPicture } from '../utils';
-import { SearchProfiles } from './components/SearchProfiles/SearchProfiles';
-
-// Import client from ./client.ts
 import { client } from './client';
 
 export default function Home() {
   const options = {
-    query: '', // add a query parameter here
+    query: '',
     limit: 30,
-    client, // pass the client to useSearchProfiles
+    client,
   };
 
   const { data } = useSearchProfiles(options);
@@ -38,6 +35,15 @@ export default function Home() {
           </div>
         </Link>
       ))}
+      <div>
+        <Card />
+      </div>
     </div>
   );
+}
+
+function Card() {
+  const [state, setState] = useClient(""); // use the useClient hook to mark this component as a client component
+
+  return <></>;
 }
